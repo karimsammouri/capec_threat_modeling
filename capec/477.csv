@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+477,Signature Spoofing by Mixing Signed and Unsigned Content,"An attacker exploits the underlying complexity of a data structure that allows for both signed and unsigned content, to cause unsigned data to be processed as though it were signed data.",Low,High,::Ensure the application is fully patched and does not allow the processing of unsigned data as if it is signed data.::,

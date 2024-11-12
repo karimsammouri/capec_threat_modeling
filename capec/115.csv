@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+115,Authentication Bypass,"An attacker gains access to application, service, or device with the privileges of an authorized or privileged user by evading or circumventing an authentication mechanism. The attacker is therefore able to access protected data without authentication ever having taken place.",,Medium,,

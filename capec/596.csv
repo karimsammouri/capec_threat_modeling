@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+596,TCP RST Injection,An adversary injects one or more TCP RST packets to a target after the target has made a HTTP GET request. The goal of this attack is to have the target and/or destination web server terminate the TCP connection.,,,,

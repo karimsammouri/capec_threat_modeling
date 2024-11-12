@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+578,Disable Security Software,"An adversary exploits a weakness in access control to disable security tools so that detection does not occur. This can take the form of killing processes, deleting registry keys so that tools do not start at run time, deleting log files, or other methods.",Medium,Medium,::Ensure proper permissions are in place to prevent adversaries from altering the execution status of security tools.::,

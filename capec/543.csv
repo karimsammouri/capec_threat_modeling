@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+543,Counterfeit Websites,"Adversary creates duplicates of legitimate websites. When users visit a counterfeit site, the site can gather information or upload malware.",,High,,

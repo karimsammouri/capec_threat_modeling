@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+571,Block Logging to Central Repository,An adversary prevents host-generated logs being delivered to a central location in an attempt to hide indicators of compromise.,,Low,,

@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+626,Smudge Attack,Attacks that reveal the password/passcode pattern on a touchscreen device by detecting oil smudges left behind by the user’s fingers.,,,::Strong physical security of the device.::,

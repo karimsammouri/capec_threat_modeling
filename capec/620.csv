@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+620,Drop Encryption Level,"An attacker forces the encryption level to be lowered, thus enabling a successful attack against the encrypted data.",,High,,

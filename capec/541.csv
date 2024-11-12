@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+541,Application Fingerprinting,An adversary engages in fingerprinting activities to determine the type or version of an application installed on a remote target.,,Low,,

@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+233,Privilege Escalation,An adversary exploits a weakness enabling them to elevate their privilege and perform an action that they are not supposed to be authorized to perform.,,,,

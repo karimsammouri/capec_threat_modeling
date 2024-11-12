@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+186,Malicious Software Update,An adversary uses deceptive methods to cause a user or an automated process to download and install dangerous code believed to be a valid update that originates from an adversary controlled source.,,High,::Validate software updates before installing.::,::Using an automated process to download and install dangerous code was key part of the NotPeyta attack [REF-697]::

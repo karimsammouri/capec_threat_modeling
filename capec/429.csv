@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+429,Target Influence via Eye Cues,The adversary gains information via non-verbal means from the target through eye movements.,,Low,,

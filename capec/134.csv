@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+134,Email Injection,An adversary manipulates the headers and content of an email message by injecting data via the use of delimiter characters native to the protocol.,,Medium,,

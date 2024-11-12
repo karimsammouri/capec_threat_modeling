@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+307,TCP RPC Scan,An adversary scans for RPC services listing on a Unix/Linux host.,,Low,"::Typically, an IDS/IPS system is very effective against this type of attack.::",

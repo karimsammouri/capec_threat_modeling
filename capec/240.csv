@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+240,Resource Injection,An adversary exploits weaknesses in input validation by manipulating resource identifiers enabling the unintended modification or specification of a resource.,High,High,::Ensure all input content that is delivered to client is sanitized against an acceptable content specification.::Perform input validation for all content.::Enforce regular patching of software.::,

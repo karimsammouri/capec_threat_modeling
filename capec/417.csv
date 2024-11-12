@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+417,Influence Perception,The adversary uses social engineering to exploit the target's perception of the relationship between the adversary and themselves. This goal is to persuade the target to unknowingly perform an action or divulge information that is advantageous to the adversary.,High,Low,"::An organization should provide regular, robust cybersecurity training to its employees to prevent social engineering attacks.::",

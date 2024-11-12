@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+116,Excavation,An adversary actively probes the target in a manner that is designed to solicit information that could be leveraged for malicious purposes.,High,Medium,::Minimize error/response output to only what is necessary for functional use or corrective language.::Remove potentially sensitive information that is not necessary for the application's functionality.::,

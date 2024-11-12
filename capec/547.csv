@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+547,Physical Destruction of Device or Component,"An adversary conducts a physical attack a device or component, destroying it such that it no longer functions as intended.",,,,

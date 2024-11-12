@@ -1,0 +1,2 @@
+ID,Name,Description,Likelihood Of Attack,Typical Severity,Mitigations,Example Instances
+666,BlueSmacking,An adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS. This attack must be carried out within close proximity to a Bluetooth enabled device.,Medium,Medium,"::Disable Bluetooth when not being used.::When using Bluetooth, set it to hidden or non-discoverable mode.::",
