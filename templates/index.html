@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Based CAPEC Threat Modeling Agent</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+
+    <!-- jsTree Dependency -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>LLM-Based CAPEC Threat Modeling Agent</h1>
+
+        <div id="step-1">
+            <aside id="overview-explanation" class="no-print">
+                This agent utilizes <i>Large Language Models (LLMs)</i> and <i>semantic search</i> on a vector database
+                containing <a href="https://capec.mitre.org/index.html" target="_blank""><i>Common Attack Pattern Enumeration
+                    and Classification (CAPEC)</i></a> entries to automate <a href="
+                    https://owasp.org/www-community/Threat_Modeling" target="_blank""><i>threat modeling</i></a>. Though this agent is not a substitute for comprehensive threat modeling, 
+                    it attempts to make the practice more accessible for those without the specialized cybersecurity knowledge and automate
+                    initial, high-level threat modeling, reducing the manual effort, time, and labor required. To start, describe
+                    your system below.
+                </aside>
+                <label for=" system-description">System Description:</label>
+                <textarea id="system-description" rows="6" placeholder="Enter your system description here" oninput="autoExpand(this)"></textarea>
+                <button id="decompose-button" class="no-print">Decompose system</button>
+        </div>
+
+        <div id="step-2" class="output-section">
+            <h2><span class="no-print">📐</span> Stage 1: System Decomposition</h2>
+            <aside id="decompose-explanation" class="no-print">
+                In this stage, an LLM breaks down your system into its core components using
+                <a href="https://www.security.uci.edu/program/risk-assessment/data-flow-diagram/"
+                    target="_blank"><i>data-flow diagram (DFD)</i></a> elements: <i>external entities, processes,
+                    data stores, and data flows.</i> DFDs are recommended for threat modeling since they
+                focus on the flow of data in a system. <i>External entities</i> interact with the system,
+                <i>processes</i> handle internal logic, <i>data stores</i> contain static data, and
+                <i>data flows</i> represent data movement between components. This decomposition stage
+                enhances the subsequent processing by ensuring all system elements are analyzed.
+            </aside>
+            <label id="decompose-label" for="decomposed-system" class="hidden no-print">LLM Output (Click to Edit):</label>
+            <div id="decompose-spinner" class="spinner"></div>
+            <pre id="decomposed-system" class="hidden" contenteditable="true"></pre>
+            <button id="identify-button" class="hidden no-print">Identify threats</button>
+        </div>
+
+        <div id="step-3" class="output-section">
+            <h2><span class="no-print">🔍</span> Stage 2: Threat Identification</h2>
+            <aside id="identify-explanation" class="no-print">
+                Based on the previous system decomposition, an LLM identifies relevant threats
+                for each system component using its inherent knowledge and reasoning capabilities. Traditionally,
+                this step requires cybersecurity expertise and is done manually. Here, we automate it using an LLM.
+                The output of this stage serves as a precursor to the subsequent, more-detailed CAPEC retrieval
+                stage.
+            </aside>
+            <label id="identify-label" for="identified-threats" class="hidden no-print">LLM Output (Click to Edit):</label>
+            <div id="identify-spinner" class="spinner"></div>
+            <pre id="identified-threats" class="hidden" contenteditable="true"></pre>
+            <button id="retrieve-button" class="hidden no-print">Retrieve CAPEC entries</button>
+        </div>
+
+        <div id="step-4" class="output-section">
+            <h2><span class="no-print">📝</span> Stage 3: CAPEC Retrieval</h2>
+            <aside id="retrieve-explanation" class="no-print">
+                For completeness and detail, and to <i>partially</i> address LLM limitations such as outdated knowledge,
+                hallucinations,
+                and generic responses, a retriever maps the LLM-identified threats to their most semantically relevant
+                <a href="https://capec.mitre.org/index.html" target="_blank"">CAPEC</a> entries. CAPEC provides regularly updated, industry-standard information with detailed 
+                    threat descriptions and mitigations. By combining LLM reasoning with CAPEC semantic search, we generate a more complete, 
+                    accurate, and precise threat model.
+            </aside>
+            <div id="retrieve-options" class="hidden no-print">
+            <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
+            <div class="filter-container">
+                <div class="filter-item">
+                    <label id="filter-label-1" for="retrieve-filter-1" class="hidden no-print">Filter Threats by Attack Likelihood:</label>
+                    <select id="retrieve-filter-1" class="hidden no-print">
+                            <option value="All">All</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label id="filter-label-2" for="retrieve-filter-2" class="hidden no-print">Filter Threats by Attack Severity:</label>
+                    <select id="retrieve-filter-2" class="hidden no-print">
+                        <option value="All">All</option>
+                        <option value="Very High">Very High</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                        <option value="Very Low">Very Low</option>
+                    </select>
+                </div>
+            </div>
+            <span id="expand-tree" class="hidden no-print">Expand All</span>
+            <span id="separator" class="hidden no-print">/</span>
+            <span id="collapse-tree" class="hidden no-print">Collapse All</span>
+            </div>
+            <label id="retrieve-label" for="retrieved-entries" class="hidden no-print">Retrieval Output (Right-Click to Edit):</label>
+            <div id="retrieve-spinner" class="spinner"></div>
+            <pre id="retrieved-entries" class="hidden" contenteditable="false"></pre>
+            <button id="print-button" class="hidden no-print" onclick="window.print()">Print or save report as PDF</button>
+        </div>
+
+        <footer>
+            &copy; 2024 Karim Sammouri. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- jsTree Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
