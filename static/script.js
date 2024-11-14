@@ -1,4 +1,6 @@
 let expandAllTriggered = false;
+let recognition;
+let isListening = false;
 
 function autoExpand(textarea) {
     textarea.style.height = "auto";
@@ -8,7 +10,6 @@ function autoExpand(textarea) {
 function filterThreats(selectedLikelihood, selectedSeverity) {
     const tree = $("#retrieved-entries").jstree(true);
     tree.show_all();
-
     if (selectedLikelihood === "All" && selectedSeverity === "All") {
         if (expandAllTriggered) {
             tree.open_all();
@@ -33,6 +34,44 @@ function filterThreats(selectedLikelihood, selectedSeverity) {
 
 document.getElementById("overview-explanation").style.background = "lightcyan";
 document.getElementById("overview-explanation").style.borderLeftColor = "lightblue";
+
+const micButton = document.getElementById("mic-button");
+micButton.addEventListener("click", function() {
+    if (!("webkitSpeechRecognition" in window)) {
+        alert("Your browser does not support speech recognition.");
+        return;
+    }
+    if (!recognition) {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "en-US";
+        recognition.onresult = (event) => {
+            let finalTranscript = "";
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript + ".";
+                }
+            }
+            document.getElementById("system-description").value += finalTranscript;
+        };
+        recognition.onerror = (event) => {
+            micButton.classList.remove("listening");
+            recognition.stop();
+            isListening = false;
+            console.error("Speech recognition error detected: ", event.error);
+        }
+    }
+    if (isListening) {
+        micButton.classList.remove("listening");
+        recognition.stop();
+        isListening = false;
+    } else {
+        micButton.classList.add("listening");
+        recognition.start();
+        isListening = true;
+    }
+});
 
 document.getElementById("decompose-button").addEventListener("click", function() {
     document.getElementById("decompose-button").innerText = "Decomposing system...";

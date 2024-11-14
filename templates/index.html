@@ -20,14 +20,17 @@
             <aside id="overview-explanation" class="no-print">
                 This agent utilizes <i>Large Language Models (LLMs)</i> and <i>semantic search</i> on a vector database
                 containing <a href="https://capec.mitre.org/index.html" target="_blank""><i>Common Attack Pattern Enumeration
-                    and Classification (CAPEC)</i></a> entries to automate <a href="
-                    https://owasp.org/www-community/Threat_Modeling" target="_blank""><i>threat modeling</i></a>. Though this agent is not a substitute for comprehensive threat modeling, 
-                    it attempts to make the practice more accessible for those without the specialized cybersecurity knowledge and automate
-                    initial, high-level threat modeling, reducing the manual effort, time, and labor required. To start, describe
-                    your system below.
-                </aside>
-                <label for=" system-description">System Description:</label>
+                and Classification (CAPEC)</i></a> entries to automate <a href="
+                https://owasp.org/www-community/Threat_Modeling" target="_blank""><i>threat modeling</i></a>. Though this agent is not a substitute for comprehensive threat modeling, 
+                it attempts to make the practice more accessible for those without the specialized cybersecurity knowledge and automate
+                initial, high-level threat modeling, reducing the manual effort, time, and labor required. To start, describe
+                your system below.
+            </aside>
+            <label for=" system-description">System Description:</label>
+            <div id="description-container">
                 <textarea id="system-description" rows="6" placeholder="Enter your system description here" oninput="autoExpand(this)"></textarea>
+                <button id="mic-button">🎙️</button>
+            </div>
                 <button id="decompose-button" class="no-print">Decompose system</button>
         </div>
 
@@ -76,7 +79,7 @@
             </aside>
             <div id="retrieve-options" class="hidden no-print">
             <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
-            <div class="filter-container">
+            <div id="filter-container">
                 <div class="filter-item">
                     <label id="filter-label-1" for="retrieve-filter-1" class="hidden no-print">Filter Threats by Attack Likelihood:</label>
                     <select id="retrieve-filter-1" class="hidden no-print">
