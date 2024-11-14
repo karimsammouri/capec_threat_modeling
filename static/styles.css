@@ -160,7 +160,7 @@ mark {
     border-radius: 10px;
 }
 
-#expand-tree, #collapse-tree {
+#expand-tree, #collapse-tree, #reset-tree {
     margin: 1000px 0;
     cursor: pointer;
     text-decoration: underline;

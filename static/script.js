@@ -171,14 +171,16 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
             filterThreats(selectedLikelihood, selectedSeverity);
         });
         document.getElementById("expand-tree").classList.remove("hidden");
-        document.getElementById("separator").classList.remove("hidden");
+        document.getElementById("separator-1").classList.remove("hidden");
         document.getElementById("collapse-tree").classList.remove("hidden");
+        document.getElementById("separator-2").classList.remove("hidden");
+        document.getElementById("reset-tree").classList.remove("hidden");
         document.getElementById("retrieve-label").classList.remove("hidden");
         document.getElementById("retrieved-entries").classList.remove("hidden");
         if ($("#retrieved-entries").jstree(true)) {
             $("#retrieved-entries").jstree("destroy").empty();
         }
-        $("#retrieved-entries").jstree({
+        let treeData = {
             "core": {
               "data": data,
               "check_callback": true,
@@ -214,9 +216,10 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
                     };
                 }
             }
-        });
+        };
+        $("#retrieved-entries").jstree(treeData);
         document.getElementById("retrieve-search").addEventListener("keyup", function() {
-            var searchString = this.value;
+            let searchString = this.value;
             const selectedLikelihood = document.getElementById("retrieve-filter-1").value;
             const selectedSeverity = document.getElementById("retrieve-filter-2").value;
             const tree = $("#retrieved-entries").jstree(true);
@@ -230,6 +233,13 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
         document.getElementById("collapse-tree").addEventListener("click", function() {
             expandAllTriggered = false;
             $("#retrieved-entries").jstree("close_all");
+        });
+        document.getElementById("reset-tree").addEventListener("click", function() {
+            expandAllTriggered = false;
+            document.getElementById("retrieve-filter-1").value = "All";
+            document.getElementById("retrieve-filter-2").value = "All";
+            $("#retrieved-entries").jstree("destroy").empty();
+            $("#retrieved-entries").jstree(treeData);
         });
         document.getElementById("print-button").classList.remove("hidden");
         document.getElementById("step-4").scrollIntoView({

@@ -29,7 +29,7 @@
             <label for=" system-description">System Description:</label>
             <div id="description-container">
                 <textarea id="system-description" rows="6" placeholder="Enter your system description here" oninput="autoExpand(this)"></textarea>
-                <button id="mic-button">🎙️</button>
+                <button id="mic-button" class="no-print">🎙️</button>
             </div>
                 <button id="decompose-button" class="no-print">Decompose system</button>
         </div>
@@ -102,8 +102,10 @@
                 </div>
             </div>
             <span id="expand-tree" class="hidden no-print">Expand All</span>
-            <span id="separator" class="hidden no-print">/</span>
+            <span id="separator-1" class="hidden no-print">/</span>
             <span id="collapse-tree" class="hidden no-print">Collapse All</span>
+            <span id="separator-2" class="hidden no-print">/</span>
+            <span id="reset-tree" class="hidden no-print">Reset Tree</span>
             </div>
             <label id="retrieve-label" for="retrieved-entries" class="hidden no-print">Retrieval Output (Right-Click to Edit):</label>
             <div id="retrieve-spinner" class="spinner"></div>
