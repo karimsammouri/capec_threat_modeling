@@ -48,7 +48,7 @@ micButton.addEventListener("click", function() {
         recognition.onresult = (event) => {
             let transcript = "";
             for (let i = event.resultIndex; i < event.results.length; i++) {
-                transcript += event.results[i][0].transcript;
+                transcript += event.results[i][0].transcript.trim() + ". ";
             }
             document.getElementById("system-description").value += transcript;
         };
