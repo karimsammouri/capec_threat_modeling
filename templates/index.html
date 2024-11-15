@@ -18,13 +18,13 @@
 
         <div id="step-1">
             <aside id="overview-explanation" class="no-print">
-                This agent utilizes <i>Large Language Models (LLMs)</i> and <i>semantic search</i> on a vector database
-                containing <a href="https://capec.mitre.org/index.html" target="_blank""><i>Common Attack Pattern Enumeration
-                and Classification (CAPEC)</i></a> entries to automate <a href="
-                https://owasp.org/www-community/Threat_Modeling" target="_blank""><i>threat modeling</i></a>. Though this agent is not a substitute for comprehensive threat modeling, 
-                it attempts to make the practice more accessible for those without the specialized cybersecurity knowledge and automate
-                initial, high-level threat modeling, reducing the manual effort, time, and labor required. To start, describe
-                your system below.
+                This agent utilizes a <i>Large Language Model (LLM)</i> and a <i>vector database</i> containing 
+                <a href="https://capec.mitre.org/index.html" target="_blank""><i>Common Attack Pattern Enumeration 
+                and Classification (CAPEC)</i></a> entries to automate <a href="https://owasp.org/www-community/Threat_Modeling" 
+                target="_blank""><i>threat modeling</i></a>. Though this agent is not a substitute for comprehensive threat modeling, 
+                it attempts to (1) make the practice more accessible for those without specialized cybersecurity expertise and 
+                (2) automate initial, high-level threat modeling, potentially reducing the time, effort, and manual work required. 
+                To start, describe your system below.
             </aside>
             <label for=" system-description">System Description:</label>
             <div id="description-container">
@@ -37,14 +37,13 @@
         <div id="step-2" class="output-section">
             <h2><span class="no-print">📐</span> Stage 1: System Decomposition</h2>
             <aside id="decompose-explanation" class="no-print">
-                In this stage, an LLM breaks down your system into its core components using
-                <a href="https://www.security.uci.edu/program/risk-assessment/data-flow-diagram/"
-                    target="_blank"><i>data-flow diagram (DFD)</i></a> elements: <i>external entities, processes,
-                    data stores, and data flows.</i> DFDs are recommended for threat modeling since they
-                focus on the flow of data in a system. <i>External entities</i> interact with the system,
-                <i>processes</i> handle internal logic, <i>data stores</i> contain static data, and
-                <i>data flows</i> represent data movement between components. This decomposition stage
-                enhances the subsequent processing by ensuring all system elements are analyzed.
+                In this stage, the LLM – OpenAI's <a href="https://openai.com/index/hello-gpt-4o/" target="_blank"><i>GPT-4o</i></a> – decomposes 
+                your system into its core components using <a href="https://www.security.uci.edu/program/risk-assessment/data-flow-diagram/" 
+                target="_blank"><i>Data-Flow Diagram (DFD)</i></a> elements: <i>(1) external entities, (2) processes, (3) data stores, and (4) data flows.</i> 
+                DFDs are widely used in threat modeling because they highlight how data moves within a system. <b>External entities</b> interact 
+                with the system, <b>processes</b> handle internal logic, <b>data stores</b> contain static data, and <b>data flows</b> represent 
+                data movement between components. This stage lays the foundation for the threat model and ensures all system elements are analyzed 
+                in subsequent stages.
             </aside>
             <label id="decompose-label" for="decomposed-system" class="hidden no-print">LLM Output (Click to Edit):</label>
             <div id="decompose-spinner" class="spinner"></div>
@@ -55,11 +54,9 @@
         <div id="step-3" class="output-section">
             <h2><span class="no-print">🔍</span> Stage 2: Threat Identification</h2>
             <aside id="identify-explanation" class="no-print">
-                Based on the previous system decomposition, an LLM identifies relevant threats
-                for each system component using its inherent knowledge and reasoning capabilities. Traditionally,
-                this step requires cybersecurity expertise and is done manually. Here, we automate it using an LLM.
-                The output of this stage serves as a precursor to the subsequent, more-detailed CAPEC retrieval
-                stage.
+                Using the prior system decomposition, the LLM identifies relevant threats for each system component through its knowledge and 
+                reasoning capabilities. Traditionally, this step requires cybersecurity expertise and is done manually, but here it's automated by the LLM.
+                The output of this stage serves as a precursor to the subsequent, more detailed CAPEC retrieval stage.
             </aside>
             <label id="identify-label" for="identified-threats" class="hidden no-print">LLM Output (Click to Edit):</label>
             <div id="identify-spinner" class="spinner"></div>
@@ -70,12 +67,10 @@
         <div id="step-4" class="output-section">
             <h2><span class="no-print">📝</span> Stage 3: CAPEC Retrieval</h2>
             <aside id="retrieve-explanation" class="no-print">
-                For completeness and detail, and to <i>partially</i> address LLM limitations such as outdated knowledge,
-                hallucinations,
-                and generic responses, a retriever maps the LLM-identified threats to their most semantically relevant
-                <a href="https://capec.mitre.org/index.html" target="_blank"">CAPEC</a> entries. CAPEC provides regularly updated, industry-standard information with detailed 
-                    threat descriptions and mitigations. By combining LLM reasoning with CAPEC semantic search, we generate a more complete, 
-                    accurate, and precise threat model.
+                For thoroughness and detail – and to address LLM limitations like outdated knowledge, <i>hallucinations</i>, and generic responses – 
+                a retriever maps the threats previously identified by the LLM to the most relevant <a href="https://capec.mitre.org/index.html" 
+                target="_blank"">CAPEC</a> entries using <i>semantic search</i> on the vector database. CAPEC offers regularly updated, industry-standard information with detailed 
+                    threat descriptions and mitigations. By combining the LLM's reasoning capabilities with CAPEC semantic retrieval, this approach produces a more accurate and comprehensive threat model.
             </aside>
             <div id="retrieve-options" class="hidden no-print">
             <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
