@@ -44,22 +44,23 @@ micButton.addEventListener("click", function() {
     if (!recognition) {
         recognition = new webkitSpeechRecognition();
         recognition.continuous = true;
-        recognition.interimResults = true;
         recognition.lang = "en-US";
         recognition.onresult = (event) => {
-            let finalTranscript = "";
+            let transcript = "";
             for (let i = event.resultIndex; i < event.results.length; i++) {
-                if (event.results[i].isFinal) {
-                    finalTranscript += event.results[i][0].transcript + ".";
-                }
+                transcript += event.results[i][0].transcript;
             }
-            document.getElementById("system-description").value += finalTranscript;
+            document.getElementById("system-description").value += transcript;
         };
         recognition.onerror = (event) => {
             micButton.classList.remove("listening");
             recognition.stop();
             isListening = false;
-            console.error("Speech recognition error detected: ", event.error);
+            console.error("Error during speech recognition: ", event.error);
+        }
+        recognition.onend = (event) => {
+            micButton.classList.remove("listening");
+            isListening = false;
         }
     }
     if (isListening) {

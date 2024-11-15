@@ -367,28 +367,28 @@ def index():
 
 @app.route("/decompose_system", methods=["POST"])
 def decompose():
-    # system_description = request.data.decode("utf-8")
-    # decomposed_system = decompose_system(system_description)
-    # return decomposed_system
+    system_description = request.data.decode("utf-8")
+    decomposed_system = decompose_system(system_description)
+    return decomposed_system
     return decompose_system_output
 
 @app.route("/identify_threats", methods=["POST"])
 def identify():
-    # decomposed_system = request.data.decode("utf-8")
-    # identified_threats = identify_threats(decomposed_system)
-    # return identified_threats
+    decomposed_system = request.data.decode("utf-8")
+    identified_threats = identify_threats(decomposed_system)
+    return identified_threats
     return identify_threats_output
 
 @app.route("/retrieve_entries", methods=["POST"])
 def retrieve():
-    # identified_threats = request.data.decode("utf-8")
-    # generated_dictionary = generate_dictionary(identified_threats)
-    # retrieved_entries = []
-    # if len(generated_dictionary) == 0:
-    #     retrieved_entries = ["There was an error in retrieving the relevant CAPEC entries."]
-    # else:
-    #     retrieved_entries = retrieve_entries(generated_dictionary)
-    # return retrieved_entries
+    identified_threats = request.data.decode("utf-8")
+    generated_dictionary = generate_dictionary(identified_threats)
+    retrieved_entries = []
+    if len(generated_dictionary) == 0:
+        retrieved_entries = ["There was an error in retrieving the relevant CAPEC entries."]
+    else:
+        retrieved_entries = retrieve_entries(generated_dictionary)
+    return retrieved_entries
     return retrieve_entries_output
 
 if __name__ == "__main__":
