@@ -237,6 +237,7 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
         });
         document.getElementById("reset-tree").addEventListener("click", function() {
             expandAllTriggered = false;
+            document.getElementById("retrieve-search").value = "";
             document.getElementById("retrieve-filter-1").value = "All";
             document.getElementById("retrieve-filter-2").value = "All";
             $("#retrieved-entries").jstree("destroy").empty();
