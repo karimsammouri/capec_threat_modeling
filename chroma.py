@@ -1,6 +1,6 @@
-import chromadb # type: ignore
-import chromadb.utils.embedding_functions as embedding_functions # type: ignore
-from dotenv import load_dotenv # type: ignore
+import chromadb
+import chromadb.utils.embedding_functions as embedding_functions
+from dotenv import load_dotenv
 import csv
 import os
 

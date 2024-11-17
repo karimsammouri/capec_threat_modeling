@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request # type: ignore
-from openai import OpenAI # type: ignore
-from dotenv import load_dotenv # type: ignore
+from flask import Flask, render_template, request
+from openai import OpenAI
+from dotenv import load_dotenv
 import os
-import chromadb # type: ignore
-import chromadb.utils.embedding_functions as embedding_functions # type: ignore
+import chromadb
+import chromadb.utils.embedding_functions as embedding_functions
 
 app = Flask(__name__)
 
