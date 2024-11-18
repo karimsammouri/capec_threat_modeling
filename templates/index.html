@@ -2,20 +2,27 @@
 <html lang="en">
 
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLM-Based CAPEC Threat Modeling Agent</title>
-    <link rel="stylesheet" href="/static/styles.css">
+
+    <!-- Favicon -->
     <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
 
+    <!-- Stylesheets -->
     <!-- jsTree Dependency -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
+    <!-- Internal Style -->
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 
 <body>
     <div class="container">
+        <!-- Header -->
         <h1>LLM-Based CAPEC Threat Modeling Agent</h1>
 
+        <!-- Step 1: System Description -->
         <div id="step-1">
             <aside id="overview-explanation" class="no-print">
                 This agent utilizes a <i>Large Language Model (LLM)</i> and a <i>vector database</i> containing 
@@ -26,7 +33,7 @@
                 (2) automate initial, high-level threat modeling, potentially reducing the time, effort, and manual work required. 
                 To start, describe your system below.
             </aside>
-            <label for=" system-description">System Description:</label>
+            <label for="system-description">System Description:</label>
             <div id="description-container">
                 <textarea id="system-description" rows="7" placeholder="Enter your system description here" oninput="autoExpand(this)"></textarea>
                 <button id="mic-button" class="no-print">🎙️</button>
@@ -34,6 +41,7 @@
                 <button id="decompose-button" class="no-print">Decompose system</button>
         </div>
 
+        <!-- Step 2: System Decomposition -->
         <div id="step-2" class="output-section">
             <h2><span class="no-print">📐</span> Stage 1: System Decomposition</h2>
             <aside id="decompose-explanation" class="no-print">
@@ -45,12 +53,13 @@
                 data movement between components. This stage lays the foundation for the threat model and ensures all system elements are analyzed 
                 in subsequent stages.
             </aside>
-            <label id="decompose-label" for="decomposed-system" class="hidden no-print">LLM Output (Click to Edit):</label>
             <div id="decompose-spinner" class="spinner"></div>
+            <label id="decompose-label" for="decomposed-system" class="hidden no-print">LLM Output (Click to Edit):</label>
             <pre id="decomposed-system" class="hidden" contenteditable="true"></pre>
             <button id="identify-button" class="hidden no-print">Identify threats</button>
         </div>
 
+        <!-- Step 3: Threat Identification -->
         <div id="step-3" class="output-section">
             <h2><span class="no-print">🔍</span> Stage 2: Threat Identification</h2>
             <aside id="identify-explanation" class="no-print">
@@ -58,56 +67,58 @@
                 reasoning capabilities. Traditionally, this step requires cybersecurity expertise and is done manually, but here it's automated by the LLM.
                 The output of this stage serves as a precursor to the subsequent, more detailed CAPEC retrieval stage.
             </aside>
-            <label id="identify-label" for="identified-threats" class="hidden no-print">LLM Output (Click to Edit):</label>
             <div id="identify-spinner" class="spinner"></div>
+            <label id="identify-label" for="identified-threats" class="hidden no-print">LLM Output (Click to Edit):</label>
             <pre id="identified-threats" class="hidden" contenteditable="true"></pre>
             <button id="retrieve-button" class="hidden no-print">Retrieve CAPEC entries</button>
         </div>
 
+        <!-- Step 4: CAPEC Retrieval -->
         <div id="step-4" class="output-section">
             <h2><span class="no-print">📝</span> Stage 3: CAPEC Retrieval</h2>
             <aside id="retrieve-explanation" class="no-print">
                 For thoroughness and detail – and to address LLM limitations like outdated knowledge, <i>hallucinations</i>, and generic responses – 
                 a retriever maps the threats previously identified by the LLM to the most relevant <a href="https://capec.mitre.org/index.html" 
                 target="_blank"">CAPEC</a> entries using <i>semantic search</i> on the vector database. CAPEC offers regularly updated, industry-standard information with detailed 
-                    threat descriptions and mitigations. By combining the LLM's reasoning capabilities with CAPEC semantic retrieval, this approach produces a more accurate and comprehensive threat model.
+                threat descriptions and mitigations. By combining the LLM's reasoning capabilities with CAPEC semantic retrieval, this approach produces a more accurate and comprehensive threat model.
             </aside>
+            <div id="retrieve-spinner" class="spinner"></div>
             <div id="retrieve-options" class="hidden no-print">
-            <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
-            <div id="filter-container">
-                <div class="filter-item">
-                    <label id="filter-label-1" for="retrieve-filter-1" class="hidden no-print">Filter Threats by Attack Likelihood:</label>
-                    <select id="retrieve-filter-1" class="hidden no-print">
+                <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
+                <div id="filter-container">
+                    <div class="filter-item">
+                        <label id="filter-label-1" for="retrieve-filter-1" class="hidden no-print">Filter Threats by Attack Likelihood:</label>
+                        <select id="retrieve-filter-1" class="hidden no-print">
                             <option value="All">All</option>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                    </select>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <div class="filter-item">
+                        <label id="filter-label-2" for="retrieve-filter-2" class="hidden no-print">Filter Threats by Attack Severity:</label>
+                        <select id="retrieve-filter-2" class="hidden no-print">
+                            <option value="All">All</option>
+                            <option value="Very High">Very High</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                            <option value="Very Low">Very Low</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="filter-item">
-                    <label id="filter-label-2" for="retrieve-filter-2" class="hidden no-print">Filter Threats by Attack Severity:</label>
-                    <select id="retrieve-filter-2" class="hidden no-print">
-                        <option value="All">All</option>
-                        <option value="Very High">Very High</option>
-                        <option value="High">High</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Low">Low</option>
-                        <option value="Very Low">Very Low</option>
-                    </select>
-                </div>
-            </div>
-            <span id="expand-tree" class="hidden no-print">Expand All</span>
-            <span id="separator-1" class="hidden no-print">/</span>
-            <span id="collapse-tree" class="hidden no-print">Collapse All</span>
-            <span id="separator-2" class="hidden no-print">/</span>
-            <span id="reset-tree" class="hidden no-print">Reset Tree</span>
+                <span id="expand-tree" class="hidden no-print">Expand All</span>
+                <span id="separator-1" class="hidden no-print">/</span>
+                <span id="collapse-tree" class="hidden no-print">Collapse All</span>
+                <span id="separator-2" class="hidden no-print">/</span>
+                <span id="reset-tree" class="hidden no-print">Reset Tree</span>
             </div>
             <label id="retrieve-label" for="retrieved-entries" class="hidden no-print">Retrieval Output (Right-Click to Edit):</label>
-            <div id="retrieve-spinner" class="spinner"></div>
             <pre id="retrieved-entries" class="hidden" contenteditable="false"></pre>
             <button id="print-button" class="hidden no-print" onclick="window.print()">Print or save report as PDF</button>
         </div>
 
+        <!-- Footer -->
         <footer>
             &copy; 2024 Karim Sammouri. All rights reserved.
         </footer>
@@ -117,6 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
 
+    <!-- Internal Script -->
     <script src="/static/script.js"></script>
 </body>
 
