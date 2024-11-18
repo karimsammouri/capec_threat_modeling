@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +10,61 @@ body {
     font-size: smaller;
 }
 
+/* Typography */
 h1 {
     color: #333;
 }
 
+label {
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+}
+
+pre {
+    white-space : normal;
+    padding: 10px 0;
+    font-size: medium;
+    overflow-wrap: break-word;
+    overflow: auto;
+}
+
+mark {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 3px;
+    border: 1px solid #999999c0;
+    border-radius: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Generic Layout and Utility Classes */
+.hidden {
+    display: none;
+}
+
+.container {
+    padding: 25px;
+}
+
+.spinner {
+    margin: 10px 0;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #09f;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+/* Sections and Components */
 aside {
     line-height: 1.6;
     background-color: #f0f0f0;
@@ -24,13 +76,23 @@ aside {
     transition: 1s ease;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 20px;
-    display: block;
+.output-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    color: #333;
+    transition: transform 1s ease;
 }
 
-textarea, button {
+.output-section:hover {
+    transform: translateY(-5px);
+}
+
+/* Interactive Elements */
+textarea, 
+button {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -50,62 +112,7 @@ button:hover {
     background-color: #40a489e9;
 }
 
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #888;
-}
-
-pre {
-    white-space : normal;
-    padding: 10px 0;
-    font-size: medium;
-    overflow-wrap: break-word;
-    overflow: auto;
-}
-
-mark {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 3px;
-    border: 1px solid #999999c0;
-    border-radius: 10px;
-}
-
-.container {
-    padding: 25px;
-}
-
-.output-section {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    color: #333;
-    transition: transform 1s ease;
-}
-
-.output-section:hover {
-    transform: translateY(-5px);
-}
-
-.hidden {
-    display: none;
-}
-
-.spinner {
-    margin: 10px 0;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #09f;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-    display: none;
-}
-
+/* Specific IDs */
 #description-container {
     position: relative;
 }
@@ -130,13 +137,6 @@ mark {
     animation: spin 4s linear infinite;
 }
 
-#filter-container {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
 #retrieve-options {
     line-height: 1.6;
     background-color: #f0f0f0;
@@ -155,12 +155,22 @@ mark {
     border-radius: 10px;
 }
 
-#retrieve-filter-1, #retrieve-filter-2 {
+#filter-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#retrieve-filter-1, 
+#retrieve-filter-2 {
     border: 1px solid #333333a0;
     border-radius: 10px;
 }
 
-#expand-tree, #collapse-tree, #reset-tree {
+#expand-tree, 
+#collapse-tree, 
+#reset-tree {
     margin: 1000px 0;
     cursor: pointer;
     text-decoration: underline;
@@ -174,12 +184,14 @@ mark {
     line-height: 1.4;
 }
 
+/* Animation */
 @keyframes spin {
     100% {
         transform: rotate(360deg);
     }
 }
 
+/* Media Queries */
 @media print {
     body {
         -webkit-print-color-adjust: exact;
