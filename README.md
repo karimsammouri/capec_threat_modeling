@@ -42,3 +42,15 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 4. Install the required dependencies:
     ```bash
     pip install -r requirements.txt
+
+## Usage
+1. Load CAPEC Data into Chroma Vector Database: Run the chroma.py script to load the CAPEC data:
+    ```bash
+    python3 chroma.py
+2. Launch the Application: Fun the Flask app:
+    ```bash
+    python3 app.py
+3. Interact with the Application:
+- Open your browser and navigate to https://127.0.0.1:5000/.
+- Provide a textual description of your system.
+- View the generated threat modle and explore the CAPEC entires in the interactive jsTree.
