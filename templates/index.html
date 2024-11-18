@@ -84,11 +84,11 @@
             </aside>
             <div id="retrieve-spinner" class="spinner"></div>
             <div id="retrieve-options" class="hidden no-print">
-                <input id="retrieve-search" class="hidden no-print" type="text" placeholder="Search">
+                <input id="retrieve-search" type="text" placeholder="Search">
                 <div id="filter-container">
                     <div class="filter-item">
-                        <label id="filter-label-1" for="retrieve-filter-1" class="hidden no-print">Filter Threats by Attack Likelihood:</label>
-                        <select id="retrieve-filter-1" class="hidden no-print">
+                        <label id="filter-label-1" for="retrieve-filter-1">Filter Threats by Attack Likelihood:</label>
+                        <select id="retrieve-filter-1">
                             <option value="All">All</option>
                             <option value="High">High</option>
                             <option value="Medium">Medium</option>
@@ -96,8 +96,8 @@
                         </select>
                     </div>
                     <div class="filter-item">
-                        <label id="filter-label-2" for="retrieve-filter-2" class="hidden no-print">Filter Threats by Attack Severity:</label>
-                        <select id="retrieve-filter-2" class="hidden no-print">
+                        <label id="filter-label-2" for="retrieve-filter-2">Filter Threats by Attack Severity:</label>
+                        <select id="retrieve-filter-2">
                             <option value="All">All</option>
                             <option value="Very High">Very High</option>
                             <option value="High">High</option>
@@ -107,11 +107,11 @@
                         </select>
                     </div>
                 </div>
-                <span id="expand-tree" class="hidden no-print">Expand All</span>
-                <span id="separator-1" class="hidden no-print">/</span>
-                <span id="collapse-tree" class="hidden no-print">Collapse All</span>
-                <span id="separator-2" class="hidden no-print">/</span>
-                <span id="reset-tree" class="hidden no-print">Reset Tree</span>
+                <span id="expand-tree">Expand All</span>
+                <span id="separator-1">/</span>
+                <span id="collapse-tree">Collapse All</span>
+                <span id="separator-2">/</span>
+                <span id="reset-tree">Reset Tree</span>
             </div>
             <label id="retrieve-label" for="retrieved-entries" class="hidden no-print">Retrieval Output (Right-Click to Edit):</label>
             <pre id="retrieved-entries" class="hidden" contenteditable="false"></pre>
