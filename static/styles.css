@@ -184,14 +184,14 @@ button:hover {
     line-height: 1.4;
 }
 
-/* Animation */
+/* Loading Spinner Animation */
 @keyframes spin {
     100% {
         transform: rotate(360deg);
     }
 }
 
-/* Media Queries */
+/* Print Media Query for Print-Specific Styles */
 @media print {
     body {
         -webkit-print-color-adjust: exact;
