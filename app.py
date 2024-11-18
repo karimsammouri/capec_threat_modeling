@@ -335,7 +335,7 @@ def retrieve_entries(threat_dictionary):
                 "children": []
             }
             for threat in threats:
-                capec_entry = collection.query(query_texts=[f"Threat: {threat} (Associated System Component: {system_component})"], n_results=1)
+                capec_entry = collection.query(query_texts=[f"Threat: {threat} (Associated System Component: {system_component})"], n_results=1, include=["documents"])
                 capec_dictionary = eval(capec_entry["documents"][0][0])
                 likelihood_of_attack = capec_dictionary.get("Likelihood Of Attack")
                 typical_severity = capec_dictionary.get("Typical Severity")
