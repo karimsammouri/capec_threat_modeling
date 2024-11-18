@@ -3,7 +3,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 import chromadb
-import chromadb.utils.embedding_functions as embedding_functions
+from chromadb.utils import embedding_functions
 
 app = Flask(__name__)
 
