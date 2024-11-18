@@ -6,4 +6,9 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 ## Key Features
 - **System Analysis**: Decomposes unstructured/structured system descriptions into core components (external entities, processes, data stores, data flows).
 - **Threat Identification**: Utilizes LLM (GPT-4o) to identify threats for each system component.
-– **CAPEC Integration**: Retrieves relevant CAPEC entries using semantic search with Chroma vector database.
+- **CAPEC Integration**: Retrieves relevant CAPEC entries using semantic search with Chroma vector database.
+- **Interactive Visualization**: Displays threats and CAPEC mappings in an interactive jsTree-based UI.
+
+---
+
+## Technologies Used
