@@ -15,7 +15,7 @@ load_dotenv()
 # Initialize OpenAI client
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Functions
+# Core functions
 def decompose_system(system_description):
     """Decompose a given system using data flow diagram elements for threat modeling."""
     system_prompt = (
@@ -123,7 +123,11 @@ def retrieve_entries(threat_dictionary):
                 "children": []
             }
             for threat in threats:
-                capec_entry = collection.query(query_texts=[f"Threat: {threat} (Associated System Component: {system_component})"], n_results=1, include=["documents"])
+                capec_entry = collection.query(
+                    query_texts=[f"Threat: {threat} (Associated System Component: {system_component})"], 
+                    n_results=1, 
+                    include=["documents"]
+                )
                 capec_dictionary = eval(capec_entry["documents"][0][0])
                 likelihood_of_attack = capec_dictionary.get("Likelihood Of Attack")
                 typical_severity = capec_dictionary.get("Typical Severity")
