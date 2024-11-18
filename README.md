@@ -12,3 +12,23 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 ---
 
 ## Technologies Used
+- **Backend**: Flask (Python)
+- **LLM API**: OpenAI GPT-4o
+- **Vector Database**: Chroma for CAPEC semantic retrieval
+- **Frontend**: HTML, CSS, JavaScript, and jsTree for interactive visualization.
+
+---
+
+## Table of Contents
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [Contributing](#contributing)
+4. [License](#license)
+5. [Acknowledgements](#acknowledgements)
+
+---
+
+## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/karimsammouri/LLM-Based-Threat-Modeling-Agent.git
