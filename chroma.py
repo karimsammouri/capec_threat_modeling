@@ -1,7 +1,6 @@
 # Imports
 import csv
 import os
-
 from dotenv import load_dotenv
 import chromadb
 from chromadb.utils import embedding_functions
@@ -42,6 +41,6 @@ for filename in os.listdir(directory):
 
 # Add data to the collection
 collection.add(
-    documents = documents,
-    ids = ids
+    documents=documents,
+    ids=ids
 )
