@@ -1,5 +1,5 @@
 import chromadb
-import chromadb.utils.embedding_functions as embedding_functions
+from chromadb.utils import embedding_functions
 from dotenv import load_dotenv
 import csv
 import os
@@ -11,7 +11,7 @@ load_dotenv()
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
                 api_key=os.getenv("OPENAI_API_KEY"),
                 model_name="text-embedding-3-large"
-            )
+)
 
 collection = chroma_client.get_or_create_collection(
     name="capec",
@@ -42,6 +42,4 @@ results = collection.query(
     n_results=3
 )
 
-for i in range(3):
-    print(results['distances'][0][i])
-    print(results["documents"][0][i])
+print(results)
