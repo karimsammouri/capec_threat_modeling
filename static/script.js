@@ -1,7 +1,9 @@
+// Global Variables
 let expandAllTriggered = false;
 let recognition;
 let isListening = false;
 
+// Utility Functions
 function autoExpand(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = textarea.scrollHeight + "px";
@@ -32,9 +34,55 @@ function filterThreats(selectedLikelihood, selectedSeverity) {
     });
 }
 
+function setupTreeView(data) {
+    if ($("#retrieved-entries").jstree(true)) {
+        $("#retrieved-entries").jstree("destroy").empty();
+    }
+    const treeData = {
+        "core": {
+          "data": data,
+          "check_callback": true,
+          "themes": {
+            "icons": false
+          }
+        },
+        "plugins": ["search", "contextmenu"],
+        "search": {
+            "show_only_matches": true
+        },
+        "contextmenu": {
+            "items": function ($node) {
+                return {
+                    "Create": {
+                        "label": "Create Node",
+                        "action": function () {
+                            $("#retrieved-entries").jstree("create_node", $node, { "text": "New Node" }, "last");
+                        }
+                    },
+                    "Rename": {
+                        "label": "Rename Node",
+                        "action": function() {
+                            $("#retrieved-entries").jstree("edit", $node);
+                        }
+                    },
+                    "Delete": {
+                        "label": "Delete Node",
+                        "action": function () {
+                            $("#retrieved-entries").jstree("delete_node", $node);
+                        }
+                    }
+                };
+            }
+        }
+    };
+    $("#retrieved-entries").jstree(treeData);
+}
+
+// Initial UI Setup
 document.getElementById("overview-explanation").style.background = "lightcyan";
 document.getElementById("overview-explanation").style.borderLeftColor = "lightblue";
 
+// Microphone Button Handler
 const micButton = document.getElementById("mic-button");
 micButton.addEventListener("click", function() {
     if (!("webkitSpeechRecognition" in window)) {
@@ -74,11 +122,16 @@ micButton.addEventListener("click", function() {
     }
 });
 
-document.getElementById("decompose-button").addEventListener("click", function() {
-    document.getElementById("decompose-button").innerText = "Decomposing system...";
+// Decompose System Button Handler
+const decomposeButton = document.getElementById("decompose-button");
+decomposeButton.addEventListener("click", function() {
+    decomposeButton.innerText = "Decomposing system...";
     document.getElementById("decompose-explanation").style.background = "lightcyan";
     document.getElementById("decompose-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("decompose-spinner").style.display = "block";
+    document.getElementById("step-2").scrollIntoView({
+        behavior: "smooth"
+    });
     const systemDescription = document.getElementById("system-description").value;
     fetch("/decompose_system", {
         method: "POST",
@@ -89,7 +142,7 @@ document.getElementById("decompose-button").addEventListener("click", function()
     })
     .then(response => response.text())
     .then(data => {
-        document.getElementById("decompose-button").innerText = "Retry system decomposition";
+        decomposeButton.innerText = "Retry system decomposition";
         document.getElementById("decompose-spinner").style.display = "none";
         document.getElementById("decompose-label").classList.remove("hidden");
         document.getElementById("decomposed-system").classList.remove("hidden");
@@ -101,16 +154,26 @@ document.getElementById("decompose-button").addEventListener("click", function()
     })
     .catch(error => {
         console.error("Error during system decomposition: ", error);
+        decomposeButton.innerText = "Retry system decomposition";
         document.getElementById("decompose-spinner").style.display = "none";
+        document.getElementById("decomposed-system").classList.remove("hidden");
         document.getElementById("decomposed-system").innerText = "There was an error. Please try again.";
+        document.getElementById("step-2").scrollIntoView({
+            behavior: "smooth"
+        });
     });
 });
 
-document.getElementById("identify-button").addEventListener("click", function() {
-    document.getElementById("identify-button").innerText = "Identifying threats...";
+// Identify Threats Button Handler
+const identifyButton = document.getElementById("identify-button");
+identifyButton.addEventListener("click", function() {
+    identifyButton.innerText = "Identifying threats...";
     document.getElementById("identify-explanation").style.background = "lightcyan";
     document.getElementById("identify-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("identify-spinner").style.display = "block";
+    document.getElementById("step-3").scrollIntoView({
+        behavior: "smooth"
+    });
     const decomposedSystem = document.getElementById("decomposed-system").innerText;
     fetch("/identify_threats", {
         method: "POST",
@@ -121,7 +184,7 @@ document.getElementById("identify-button").addEventListener("click", function() 
     })
     .then(response => response.text())
     .then(data => {
-        document.getElementById("identify-button").innerText = "Retry threat identification";
+        identifyButton.innerText = "Retry threat identification";
         document.getElementById("identify-spinner").style.display = "none";
         document.getElementById("identify-label").classList.remove("hidden");
         document.getElementById("identified-threats").classList.remove("hidden");
@@ -133,16 +196,26 @@ document.getElementById("identify-button").addEventListener("click", function() 
     })
     .catch(error => {
         console.error("Error during threat identification: ", error);
+        identifyButton.innerText = "Retry threat identification";
         document.getElementById("identify-spinner").style.display = "none";
+        document.getElementById("identified-threats").classList.remove("hidden");
         document.getElementById("identified-threats").innerText = "There was an error. Please try again.";
+        document.getElementById("step-3").scrollIntoView({
+            behavior: "smooth"
+        });
     });
 });
 
-document.getElementById("retrieve-button").addEventListener("click", function() {
-    document.getElementById("retrieve-button").innerText = "Retrieving CAPEC entries...";
+// Retrieve CAPEC Entries Button Handler
+const retrieveButton = document.getElementById("retrieve-button");
+retrieveButton.addEventListener("click", function() {
+    retrieveButton.innerText = "Retrieving CAPEC entries...";
     document.getElementById("retrieve-explanation").style.background = "lightcyan";
     document.getElementById("retrieve-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("retrieve-spinner").style.display = "block";
+    document.getElementById("step-4").scrollIntoView({
+        behavior: "smooth"
+    });
     const identifiedThreats = document.getElementById("identified-threats").innerText;
     fetch("/retrieve_entries", {
         method: "POST",
@@ -153,78 +226,25 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("retrieve-button").innerText = "Retry CAPEC retrieval";
+        retrieveButton.innerText = "Retry CAPEC retrieval";
         document.getElementById("retrieve-spinner").style.display = "none";
         document.getElementById("retrieve-options").classList.remove("hidden");
-        document.getElementById("retrieve-search").classList.remove("hidden");
-        document.getElementById("filter-label-1").classList.remove("hidden");
-        document.getElementById("retrieve-filter-1").classList.remove("hidden");
-        document.getElementById("retrieve-filter-1").addEventListener("change", function() {
-            const selectedLikelihood = this.value;
-            const selectedSeverity = document.getElementById("retrieve-filter-2").value;
-            filterThreats(selectedLikelihood, selectedSeverity);
-        });
-        document.getElementById("filter-label-2").classList.remove("hidden");
-        document.getElementById("retrieve-filter-2").classList.remove("hidden");
-        document.getElementById("retrieve-filter-2").addEventListener("change", function() {
-            const selectedLikelihood = document.getElementById("retrieve-filter-1").value;
-            const selectedSeverity = this.value;
-            filterThreats(selectedLikelihood, selectedSeverity);
-        });
-        document.getElementById("expand-tree").classList.remove("hidden");
-        document.getElementById("separator-1").classList.remove("hidden");
-        document.getElementById("collapse-tree").classList.remove("hidden");
-        document.getElementById("separator-2").classList.remove("hidden");
-        document.getElementById("reset-tree").classList.remove("hidden");
-        document.getElementById("retrieve-label").classList.remove("hidden");
-        document.getElementById("retrieved-entries").classList.remove("hidden");
-        if ($("#retrieved-entries").jstree(true)) {
-            $("#retrieved-entries").jstree("destroy").empty();
-        }
-        let treeData = {
-            "core": {
-              "data": data,
-              "check_callback": true,
-              "themes": {
-                "icons": false
-              }
-            },
-            "plugins": ["search", "contextmenu"],
-            "search": {
-                "show_only_matches": true
-            },
-            "contextmenu": {
-                "items": function ($node) {
-                    return {
-                        "Create": {
-                            "label": "Create Node",
-                            "action": function () {
-                                $("#retrieved-entries").jstree("create_node", $node, { "text": "New Node" }, "last");
-                            }
-                        },
-                        "Rename": {
-                            "label": "Rename Node",
-                            "action": function() {
-                                $("#retrieved-entries").jstree("edit", $node);
-                            }
-                        },
-                        "Delete": {
-                            "label": "Delete Node",
-                            "action": function () {
-                                $("#retrieved-entries").jstree("delete_node", $node);
-                            }
-                        }
-                    };
-                }
-            }
-        };
-        $("#retrieved-entries").jstree(treeData);
         document.getElementById("retrieve-search").addEventListener("keyup", function() {
             let searchString = this.value;
             const selectedLikelihood = document.getElementById("retrieve-filter-1").value;
             const selectedSeverity = document.getElementById("retrieve-filter-2").value;
             const tree = $("#retrieved-entries").jstree(true);
             tree.search(searchString);
+            filterThreats(selectedLikelihood, selectedSeverity);
+        });
+        document.getElementById("retrieve-filter-1").addEventListener("change", function() {
+            const selectedLikelihood = this.value;
+            const selectedSeverity = document.getElementById("retrieve-filter-2").value;
+            filterThreats(selectedLikelihood, selectedSeverity);
+        });
+        document.getElementById("retrieve-filter-2").addEventListener("change", function() {
+            const selectedLikelihood = document.getElementById("retrieve-filter-1").value;
+            const selectedSeverity = this.value;
             filterThreats(selectedLikelihood, selectedSeverity);
         });
         document.getElementById("expand-tree").addEventListener("click", function() {
@@ -240,9 +260,11 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
             document.getElementById("retrieve-search").value = "";
             document.getElementById("retrieve-filter-1").value = "All";
             document.getElementById("retrieve-filter-2").value = "All";
-            $("#retrieved-entries").jstree("destroy").empty();
-            $("#retrieved-entries").jstree(treeData);
+            setupTreeView(data);
         });
+        document.getElementById("retrieve-label").classList.remove("hidden");
+        document.getElementById("retrieved-entries").classList.remove("hidden");
+        setupTreeView(data);
         document.getElementById("print-button").classList.remove("hidden");
         document.getElementById("step-4").scrollIntoView({
             behavior: "smooth"
@@ -250,7 +272,12 @@ document.getElementById("retrieve-button").addEventListener("click", function() 
     })
     .catch(error => {
         console.error("Error during CAPEC retrieval: ", error);
+        retrieveButton.innerText = "Retry CAPEC retrieval";
         document.getElementById("retrieve-spinner").style.display = "none";
+        document.getElementById("retrieved-entries").classList.remove("hidden");
         document.getElementById("retrieved-entries").innerText = "There was an error. Please try again.";
+        document.getElementById("step-4").scrollIntoView({
+            behavior: "smooth"
+        });
     });
 });
