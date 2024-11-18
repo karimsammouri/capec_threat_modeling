@@ -31,4 +31,14 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/karimsammouri/LLM-Based-Threat-Modeling-Agent.git
+    git clone https://github.com/karimsammouri/capec_threat_modeling.git
+2. Navigate to the project directory:
+    ```bash
+    cd capec_threat_modeling
+3. Create and activate a virtual environment (optional but recommended):
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate # On Windows: .\venv\Scripts\activate
+4. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
