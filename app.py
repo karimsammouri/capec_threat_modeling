@@ -132,7 +132,7 @@ def retrieve_entries(threat_dictionary):
                 likelihood_of_attack = capec_dictionary.get("Likelihood Of Attack")
                 typical_severity = capec_dictionary.get("Typical Severity")
                 threat_node = {
-                    "text": f"<mark>{threat}</mark>",
+                    "text": f'<mark>"{threat}"</mark>',
                     "state": {"opened": False},
                     "data": {"likelihood": likelihood_of_attack, "severity": typical_severity},
                     "children": []
