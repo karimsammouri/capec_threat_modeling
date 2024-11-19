@@ -31,7 +31,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
         ```bash
         python3 --version
         ```
-        If it's not installed or the version is below 3.8, install the latest version:
+        If Python 3.12 or later is not installed:
         - Download Python from the [official Python website](https://www.python.org/downloads/).
         - Follow the installation instructions for your OS.
     - **Linux:** Most distributions have Python 3 pre-installed. Verify with:
@@ -63,7 +63,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
         ```bash
         python3 -m venv venv
         ```
-        > **Note:** Use `python` instead of `python3` if if points to Python 3 on your system.
+        > **Note:** Use `python` instead of `python3` if points to Python 3 on your system.
     - Activate the virtual environment:
         - On macOS/Linux:
             ```bash
@@ -96,13 +96,13 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 For contributions, please fork the repository, make changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-This project is licensed under the [MIT License](License). See the `LICENSE` file for details.
+This project is licensed under the [MIT License](LICENSE). See the `LICENSE` file for details.
 
 ## Acknowledgements
 - **MITRE:** For developing and maintaining the [CAPEC](https://capec.mitre.org/) knowledge base.
 - **OpenAI:** For providing the GPT-4o model.
-- **Chroma:** For their open-source vector database.
-- **jsTree:** An open-source JavaScript library for creating interactive tree structures.
+- **Chroma:** An open-source vector database.
+- **jsTree:** An open-source JavaScript library (jQuery plugin) for creating interactive tree structures.
 
 ## Contact
 Developed by [Karim Sammouri](https://github.com/karimsammouri). Feel free to reach out for any questions or suggestions at karimsammouri@gmail.com.
