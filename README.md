@@ -63,7 +63,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
         ```bash
         python3 -m venv venv
         ```
-        > **Note:** Use `python` instead of `python3` if points to Python 3 on your system.
+        > **Note:** Use `python` instead of `python3` if it points to Python 3 on your system.
     - Activate the virtual environment:
         - On macOS/Linux:
             ```bash
