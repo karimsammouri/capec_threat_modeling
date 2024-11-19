@@ -15,12 +15,12 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 - **Frontend:** HTML, CSS, JavaScript, and jsTree (for interactive visualization)
 
 ## Table of Contents
-1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Contributions](#contributions)
-4. [License](#license)
-5. [Acknowledgements](#acknowledgements)
-6. [Contact](#contact)
+1. [Installation](#Installation)
+2. [Usage](#Usage)
+3. [Contributions](#Contributions)
+4. [License](#License)
+5. [Acknowledgements](#Acknowledgements)
+6. [Contact](#Contact)
 
 ## Installation
 
@@ -101,7 +101,7 @@ This project is licensed under the [MIT License](LICENSE). See the `LICENSE` fil
 ## Acknowledgements
 - **MITRE:** For developing and maintaining the [CAPEC](https://capec.mitre.org/) knowledge base.
 - **OpenAI:** For providing the GPT-4o model.
-- **Chroma:** An open-source vector database.
+- **Chroma:** An open-source vector database that enables semantic search.
 - **jsTree:** An open-source JavaScript library (jQuery plugin) for creating interactive tree structures.
 
 ## Contact
