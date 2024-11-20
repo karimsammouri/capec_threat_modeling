@@ -93,14 +93,16 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
     - The application will automatically read the key from the `.env` file when you run it.
 
 ## Usage
-1. **Load CAPEC into the Chroma vector database:** Run the `chroma.py` script to load the CAPEC data:
-    ```bash
-    python3 chroma.py
-    ```
-2. **Launch the Application:** Run the Flask app:
-    ```bash
-    python3 app.py
-    ```
+1. **Load CAPEC into the Chroma vector database:**
+    - Run the `chroma.py` script to load the CAPEC data:
+        ```bash
+        python3 chroma.py
+        ```
+2. **Launch the Application:**
+    - Run the Flask app:
+        ```bash
+        python3 app.py
+        ```
 3. **Interact with the Application:**
     - Open your browser and navigate to http://127.0.0.1:5000/.
     - Provide a textual description of your system.
@@ -113,7 +115,7 @@ For contributions, please fork the repository, make changes, and submit a pull r
 This project is licensed under the [MIT License](LICENSE). See the `LICENSE` file for details.
 
 ## Acknowledgements
-- **MITRE:** For developing and maintaining the [CAPEC](https://capec.mitre.org/) knowledge base.
+- **MITRE:** For developing and maintaining the publicly available [CAPEC](https://capec.mitre.org/) knowledge base.
 - **OpenAI:** For providing the GPT-4o model.
 - **Chroma:** An open-source vector database that enables semantic search.
 - **jsTree:** An open-source JavaScript library (jQuery plugin) for creating interactive tree structures.
