@@ -25,7 +25,10 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 ## Installation
 
 ### Prerequisites
-1. **Install Python 3.12 or later** (if not already installed):
+1. **Obtain an OpenAI API key:**
+    - Obtain an API key by signing up at [OpenAI](https://platform.openai.com/docs/overview) and creating a new secret key.
+    - This key is required for the application to interact with OpenAI's GPT-4o model. You will configure the key below.
+2. **Install Python 3.12 or later** (if not already installed):
     > **Note:** This project is designed to work best with *Python 3.12*. While earlier versions of Python may work, they are not officially supported and could result in *unexpected behavior or performance issues*.
     - **macOS:** Python 3 is often pre-installed. Verify the version:
         ```bash
@@ -46,7 +49,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
     - **Windows:**
         - Download the installer from the [official Python website](https://www.python.org/downloads/).
         - During installation, make sure to check the box *"Add Python to PATH"*.
-2. **Install Git** (if not already installed):
+3. **Install Git** (if not already installed):
     - Follow the instructions for your operating system at the [official Git website](https://git-scm.com/).
 
 ### Project Setup
@@ -77,6 +80,17 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
     ```bash
     pip install -r requirements.txt
     ```
+5. Configure the OpenAI API key:
+    - Create a `.env` file in the root directory of the project:
+        ```bash
+        touch .env
+        ```
+    - Add the following line (your API key) to the `.env` file:
+        ```bash
+        OPENAI_API_KEY=your_openai_api_key
+        ```
+        > **Note:** Replace `your_openai_api_key` with your actual OpenAI API key.
+    - The application will automatically read the key from the `.env` file when you run it.
 
 ## Usage
 1. **Load CAPEC into the Chroma vector database:** Run the `chroma.py` script to load the CAPEC data:
