@@ -89,7 +89,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
         ```bash
         OPENAI_API_KEY=your_openai_api_key
         ```
-        > **Note:** Replace `your_openai_api_key` with your actual OpenAI API key.
+        > **Note:** Replace `your_openai_api_key` with your actual OpenAI API key and don't forget to save the file!
     - The application will automatically read the key from the `.env` file when you run it.
 
 ## Usage
