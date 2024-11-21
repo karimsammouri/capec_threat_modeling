@@ -28,6 +28,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
 1. **Obtain an OpenAI API key:**
     - Obtain an API key by signing up at [OpenAI](https://platform.openai.com/docs/overview) and creating a new secret key.
     - This key is required for the application to interact with OpenAI's GPT-4o model. You will configure the key below.
+    > **Note:** You will need to have funds in your OpenAI account. Without adequate funds, the tool will not be able to make calls to OpenAI's GPT-4o model. Check your account settings for more details.
 2. **Install Python 3.12 or later** (if not already installed):
     > **Note:** This project is designed to work best with *Python 3.12*. While earlier versions of Python may work, they are not officially supported and could result in *unexpected behavior or performance issues*.
     - **macOS:** Python 3 is often pre-installed. Verify the version:
@@ -98,6 +99,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
         ```bash
         python3 chroma.py
         ```
+    > **Note:** You only need to run the `chroma.py` script once. It creates a local Chroma vector database with the CAPEC dataset, which can be reused across sessions.
 2. **Launch the Application:**
     - Run the Flask app:
         ```bash
