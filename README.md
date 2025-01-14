@@ -111,7 +111,7 @@ The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive t
     - Generate and explore the threat model.
 
 ## Contributions
-For contributions, please fork the repository, make changes, and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+For contributions, please fork the repository, make changes, and submit a pull request.
 
 ## License
 This project is licensed under the [MIT License](LICENSE). See the `LICENSE` file for details.
