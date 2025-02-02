@@ -124,7 +124,7 @@ def retrieve_entries(threat_dictionary):
             }
             for threat in threats:
                 capec_entry = collection.query(
-                    query_texts=[threat], 
+                    query_texts=[f"Threat: {threat} (Associated Software Component: {system_component})"], 
                     n_results=1, 
                     include=["documents"]
                 )
