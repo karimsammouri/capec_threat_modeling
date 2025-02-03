@@ -45,13 +45,13 @@ def identify_threats(decomposed_system):
     """Identify relevant attack patterns for a decomposed system."""
     system_prompt = (
         "You are a cybersecurity expert specializing in threat modeling. "
-        "Your task is to identify relevant attack patterns for components of a decomposed system, "
+        "Your task is to identify two relevant attack patterns for components of a decomposed system, "
         "analyzing external entities, processes, data stores, and data flows. "
         "You respond in plain text instead of Markdown."
     )
     threat_identification_prompt = (
         "I'll give you a decomposed system. "
-        "Identify relevant attack patterns for each system component (external entities, processes, data stores, and data flows). "
+        "Identify two relevant attack patterns for each system component (external entities, processes, data stores, and data flows). "
         "Maintain the structure of the input in your output. "
         "Output only plain text. Do not output Markdown. "
         "The decomposed system is as follows:\n" + decomposed_system
