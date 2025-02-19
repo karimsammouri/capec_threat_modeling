@@ -1,5 +1,6 @@
 # LLM-Based Threat Modeling Agent with CAPEC Retrieval
 
+## Screenshot
 ![Screenshot of Threat Modeling Tool](https://github.com/karimsammouri/capec_threat_modeling/blob/master/screenshot.png)
 
 ## Description
