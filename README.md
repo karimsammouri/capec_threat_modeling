@@ -1,7 +1,7 @@
 # LLM-Based Threat Modeling Agent with CAPEC Retrieval
 
 ## Visual Interface
-<img src="https://github.com/karimsammouri/capec_threat_modeling/blob/master/screenshot.png" alt="Screenshot of Threat Modeling Tool" width="200"/>
+<img src="https://github.com/karimsammouri/capec_threat_modeling/blob/master/screenshot.png" alt="Screenshot of Threat Modeling Tool" width="800"/>
 
 ## Description
 The **LLM-Based Threat Modeling Agent with CAPEC Retrieval** is an interactive tool designed to generate a threat model based on a textual system description. It uses a combination of advanced technologies to break down a system into its core components, identify relevant threats for each component, and map each threat to the [CAPEC](https://capec.mitre.org) knowledge base for actionable insights. The final threat model is presented as an interactive tree visualization.
