@@ -118,6 +118,8 @@ button:hover {
 }
 
 #mic-button {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -127,6 +129,10 @@ button:hover {
     font-size: 24px;
     align-items: center;
     justify-content: center;
+}
+
+#mic-button:hover {
+    background-color: #ccc;
 }
 
 #mic-button.listening {

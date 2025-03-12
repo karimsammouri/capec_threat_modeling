@@ -79,8 +79,8 @@ function setupTreeView(data) {
 }
 
 // Initial UI Setup
-document.getElementById("overview-explanation").style.background = "lightcyan";
-document.getElementById("overview-explanation").style.borderLeftColor = "lightblue";
+//document.getElementById("overview-explanation").style.background = "lightcyan";
+//document.getElementById("overview-explanation").style.borderLeftColor = "lightblue";
 
 // Microphone Button Handler
 const micButton = document.getElementById("mic-button");
@@ -126,8 +126,8 @@ micButton.addEventListener("click", function() {
 const decomposeButton = document.getElementById("decompose-button");
 decomposeButton.addEventListener("click", function() {
     decomposeButton.innerText = "Decomposing system...";
-    document.getElementById("decompose-explanation").style.background = "lightcyan";
-    document.getElementById("decompose-explanation").style.borderLeftColor = "lightblue";
+    //document.getElementById("decompose-explanation").style.background = "lightcyan";
+    //document.getElementById("decompose-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("decompose-spinner").style.display = "block";
     document.getElementById("step-2").scrollIntoView({
         behavior: "smooth"
@@ -168,8 +168,8 @@ decomposeButton.addEventListener("click", function() {
 const identifyButton = document.getElementById("identify-button");
 identifyButton.addEventListener("click", function() {
     identifyButton.innerText = "Identifying threats...";
-    document.getElementById("identify-explanation").style.background = "lightcyan";
-    document.getElementById("identify-explanation").style.borderLeftColor = "lightblue";
+    //document.getElementById("identify-explanation").style.background = "lightcyan";
+    //document.getElementById("identify-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("identify-spinner").style.display = "block";
     document.getElementById("step-3").scrollIntoView({
         behavior: "smooth"
@@ -210,8 +210,8 @@ identifyButton.addEventListener("click", function() {
 const retrieveButton = document.getElementById("retrieve-button");
 retrieveButton.addEventListener("click", function() {
     retrieveButton.innerText = "Retrieving CAPEC entries...";
-    document.getElementById("retrieve-explanation").style.background = "lightcyan";
-    document.getElementById("retrieve-explanation").style.borderLeftColor = "lightblue";
+    //document.getElementById("retrieve-explanation").style.background = "lightcyan";
+    //document.getElementById("retrieve-explanation").style.borderLeftColor = "lightblue";
     document.getElementById("retrieve-spinner").style.display = "block";
     document.getElementById("step-4").scrollIntoView({
         behavior: "smooth"

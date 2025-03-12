@@ -24,7 +24,7 @@ collection = chroma_client.get_or_create_collection(
     embedding_function=openai_ef
 )
 
-# Load data from CSV files in the capec directory (contains dataset of CAPEC entries)
+# Load CAPEC data from CSV files in the capec directory
 directory = "capec"
 documents = []
 ids = []

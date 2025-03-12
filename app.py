@@ -20,14 +20,16 @@ def decompose_system(system_description):
     """Decompose a given system using data flow diagram elements for threat modeling."""
     system_prompt = (
         "You are a system analyst specialized in threat modeling. "
-        "Your task is to analyze and decompose systems using data flow diagram (DFD) elements, "
-        "focusing on identifying external entities, processes, data stores, and data flows. "
+        "Your task is to analyze and decompose systems using data-flow "
+        "diagram (DFD) elements, focusing on identifying external "
+        "entities, processes, data stores, and data flows. "
         "You respond in plain text instead of Markdown."
     )
-    system_decomposition_prompt = (
+    user_prompt = (
         "I'll give you a textual description of a system. "
-        "Decompose this system using data flow diagram (DFD) elements for threat modeling. "
-        "Stucture your response as follows: external entities, processes, data stores, and data flows. "
+        "Decompose this system using data-flow diagram (DFD) elements "
+        "for threat modeling. Stucture your response as follows: "
+        "external entities, processes, data stores, and data flows. "
         "Output only plain text. Do not output Markdown. "
         "The system description is as follows:\n" + system_description
     )
@@ -35,7 +37,7 @@ def decompose_system(system_description):
         model="gpt-4o",
         messages=[
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": system_decomposition_prompt}
+            {"role": "user", "content": user_prompt}
         ]
     )
     decomposed_system = system_decomposition.choices[0].message.content
@@ -45,13 +47,15 @@ def identify_threats(decomposed_system):
     """Identify relevant attack patterns for a decomposed system."""
     system_prompt = (
         "You are a cybersecurity expert specializing in threat modeling. "
-        "Your task is to identify two relevant attack patterns for components of a decomposed system, "
-        "analyzing external entities, processes, data stores, and data flows. "
+        "Your task is to identify two relevant attack patterns for "
+        "components of a decomposed system, analyzing "
+        "external entities, processes, data stores, and data flows. "
         "You respond in plain text instead of Markdown."
     )
-    threat_identification_prompt = (
+    user_prompt = (
         "I'll give you a decomposed system. "
-        "Identify two relevant attack patterns for each system component (external entities, processes, data stores, and data flows). "
+        "Identify two relevant attack patterns for each system component "
+        "(external entities, processes, data stores, and data flows). "
         "Maintain the structure of the input in your output. "
         "Output only plain text. Do not output Markdown. "
         "The decomposed system is as follows:\n" + decomposed_system
@@ -60,7 +64,7 @@ def identify_threats(decomposed_system):
         model="gpt-4o",
         messages=[
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": threat_identification_prompt}
+            {"role": "user", "content": user_prompt}
         ]
     )
     identified_threats = threat_identification.choices[0].message.content
@@ -69,13 +73,17 @@ def identify_threats(decomposed_system):
 def generate_dictionary(identified_threats):
     """Convert identified threats into an iterable Python dictionary."""
     system_prompt = (
-        "You are a Python programmer tasked with transforming structured threat modeling data into Python dictionaries. "
-        "Your output should strictly adhere to valid Python syntax and be directly parsable as a Python object."
+        "You are a Python programmer tasked with transforming structured "
+        "threat modeling data into Python dictionaries. "
+        "Your output should strictly adhere to valid Python syntax and be "
+        "directly parsable as a Python object."
         "You respond in plain text instead of Markdown."
     )
-    dictionary_generation_prompt = (
-        "I'll give you a listing of system components and related threats that are organized around data-flow diagram (DFD) elements. "
-        "Return a Python dictionary where each DFD element points to another dictionary of system components, "
+    user_prompt = (
+        "I'll give you a listing of system components and related threats "
+        "that are organized around data-flow diagram (DFD) elements. "
+        "Return a Python dictionary where each DFD element points to "
+        "another dictionary of system components, "
         "where each system component points to a list of threats. "
         "Just provide the code that will be parsed to a Python object. "
         "Output only plain text. Do not output Markdown. "
@@ -85,7 +93,7 @@ def generate_dictionary(identified_threats):
         model="gpt-4o",
         messages=[
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": dictionary_generation_prompt}
+            {"role": "user", "content": user_prompt}
         ]
     )
     generated_dictionary = dictionary_generation.choices[0].message.content
