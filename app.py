@@ -158,7 +158,7 @@ def retrieve_entries(threat_dictionary):
 # Flask routes
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return app.send_static_file("index.html")
 
 @app.route("/decompose_system", methods=["POST"])
 def decompose():
