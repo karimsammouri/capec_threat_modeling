@@ -117,7 +117,7 @@ The **LLM-Based Threat Modeling Tool with CAPEC Retrieval** is an interactive to
 For contributions, please fork the repository, make changes, and submit a pull request.
 
 ## License
-This project is licensed under the [MIT License](LICENSE). See the `LICENSE` file for details.
+This project is licensed under the [MIT License](LICENSES/LICENSE). See the `LICENSE` file for details.
 
 ## Acknowledgements
 - **MITRE:** For developing and maintaining the publicly available [CAPEC](https://capec.mitre.org/) knowledge base.
