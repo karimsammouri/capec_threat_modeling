@@ -13,8 +13,8 @@ chroma_client = chromadb.PersistentClient(path="chroma")
 
 # Initialize OpenAI embedding function
 openai_ef = embedding_functions.OpenAIEmbeddingFunction(
-                api_key=os.getenv("OPENAI_API_KEY"),
-                model_name="text-embedding-3-large"
+    api_key=os.getenv("OPENAI_API_KEY"),
+    model_name="text-embedding-3-large"
 )
 
 # Create or retrieve collection
