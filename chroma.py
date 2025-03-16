@@ -33,7 +33,7 @@ ids = []
 for filename in os.listdir(directory):
     if filename.endswith(".csv"):
         file_path = os.path.join(directory, filename)
-        with open(file_path, "r", encoding="ISO-8859-1") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             csv_reader = csv.DictReader(file)
             row = next(csv_reader)
             documents.append(str(row))
