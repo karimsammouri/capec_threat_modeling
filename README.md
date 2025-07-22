@@ -12,9 +12,7 @@ The **LLM-Based Threat Modeling Tool with CAPEC Retrieval** is an interactive to
 - **CAPEC Retrieval:** Utilizes a vector database (Chroma) containing the [CAPEC](https://capec.mitre.org) dataset to retrieve relevant attack patterns for each identified threat using semantic search.
 
 ## Technologies Used
-- **Backend:** Flask (Python)
-- **LLM API:** OpenAI GPT-4o
-- **Vector Database:** Chroma
+- **Backend:** Flask (Python), OpenAI GPT-4o (LLM API), Chroma (Vector Database)
 - **Frontend:** HTML, CSS, JavaScript, and jsTree (for interactive visualization)
 
 ## Table of Contents
